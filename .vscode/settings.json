@@ -1,5 +1,8 @@
 {
   "json.schemaDownload.trustedDomains": {
     "https://turborepo.dev": true
-  }
+  },
+  "css.customData": [
+    ".vscode/css-custom-data.json"
+  ]
 }
