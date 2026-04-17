@@ -1,0 +1,5 @@
+.test {
+  width: min(100% - (2 * var(--space-4)), 115.2rem);
+  margin-inline: auto;
+  gap: var(--space-5);
+}
