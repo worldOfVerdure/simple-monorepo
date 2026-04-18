@@ -1,9 +1,11 @@
-import styles from './styles/test.module.css';
-import { Header } from '@/components/test/header';
+//components
+import { ControlledForm } from '@/components/test/controlled-form';
 import { CustomButtons } from '@/components/test/custom-buttons';
 import { CustomLinks } from '@/components/test/custom-links';
+import { Header } from '@/components/test/header';
 import { UncontrolledForm } from '@/components/test/uncontrolled-form';
-import { ControlledForm } from '@/components/test/controlled-form';
+//styles
+import styles from './styles/test.module.css';
 
 export const Test = () => {
   return (
