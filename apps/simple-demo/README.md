@@ -1,78 +1,70 @@
-# Small Business Next Template
+# simple-demo
 
-A lean `Next.js + React + TypeScript + CSS Modules` starter for building small business websites with strong first-load performance.
+Demo Next.js app inside the simple-monorepo workspace.
+
+Live site: https://simple-template-gamma.vercel.app/
+
+## What This App Is
+
+`simple-demo` is the runnable app in `apps/simple-demo` that consumes shared workspace packages:
+
+- `@simple-monorepo/ui` for reusable primitives and elevated form building blocks
+- `@simple-monorepo/design-system` for base CSS, tokens, and global utilities
+
+This app is where components are assembled and validated in a real Next.js runtime.
+
+## Monorepo Context
+
+This is not a standalone template folder. It is one app in a monorepo managed by npm workspaces and Turbo.
+
+- Workspace root scripts (`simple-monorepo/package.json`) orchestrate tasks across apps and packages
+- App-level scripts (`apps/simple-demo/package.json`) run only this app
+- `apps/simple-demo/tsconfig.json` maps `@simple-monorepo/ui` to source for local development so Next.js compiles UI code directly
 
 ## Stack
 
 - Next.js (App Router)
 - React 19
 - TypeScript (strict)
-- CSS Modules + global design tokens
-
-## Performance Defaults
-
-- Minimal dependency baseline
-- Tokenized styling via CSS variables
-- Fluid typography using `clamp()`
-- No UI framework dependency in core
-- Compression and stripped `X-Powered-By` header in `next.config.ts`
+- CSS Modules
+- Shared design tokens via `@simple-monorepo/design-system`
 
 ## Run
+
+From monorepo root:
+
+```bash
+npm install
+npm run dev -w @simple-monorepo/simple-demo
+```
+
+Or from this folder:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+## Build And Health Checks
+
+From monorepo root:
 
 ```bash
+npm run build -w @simple-monorepo/ui
+npm run build -w @simple-monorepo/simple-demo
 npm run build
-npm run start
 ```
 
-## Styling System
+The final `npm run build` validates the full monorepo build graph through Turbo.
 
-## Form Rulebook Docs
+## Styling And Components
 
-- `src/components/test/testForm/rulebooks/README.md`
-- `src/components/test/anotherTestForm/rulebooks/README.md`
+- Theme tokens live in `src/app/styles/theme-light.css`
+- Demo composition lives in `src/components/test`
+- Form behavior is rulebook-driven through `@simple-monorepo/ui` exports (`invalidFocusValid`, `idleInvalidRule`)
 
-### Global Tokens
+## Deployment Note
 
-`src/app/globals.css` contains primitives and semantic typography tokens:
+For Vercel monorepo deployment, set project root directory to:
 
-- Color, spacing, radius, container width
-- Type scale (`--font-size-*`) with fluid values
-- Semantic text roles (`--text-body`, `--text-heading`, etc.)
-
-### Breakpoint Utilities
-
-`src/lib/breakpoints.ts` exports shared breakpoint constants and a media-query helper for JS logic.
-
-### Component Override Pattern
-
-`Button` demonstrates the reusable styling contract:
-
-- `className` for root-level overrides
-- `classes` for slot-level overrides
-- `vars` for CSS variable overrides
-- `variant` and `size` for common style changes
-- `unstyled` for full style ownership
-
-Example:
-
-```tsx
-<Button
-  variant="ghost"
-  className="myButton"
-  classes={{ label: "myButtonLabel" }}
-  vars={{ "--btn-border": "var(--color-primary)", "--btn-color": "var(--color-primary)" }}
->
-  Custom Button
-</Button>
-```
-
-## Suggested Package Strategy
-
-Keep this repo as `template-core`, then create optional packages for headless integrations (Radix wrappers) to avoid shipping unnecessary dependencies in every client site.
+`apps/simple-demo`
