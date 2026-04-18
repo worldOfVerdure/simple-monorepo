@@ -1,6 +1,6 @@
 import * as Form from '@radix-ui/react-form';
 import { ChangeEvent, ComponentPropsWithoutRef } from 'react';
-import { cn } from '@/lib/cn';
+import { cn } from '../../../../lib/cn';
 import { useFormState, useFormTheme } from '../../context/formContext';
 import { composeHandlers } from '../../helpers/composeHandlers';
 import { getControlId, getMessageId } from '../../helpers/ids';

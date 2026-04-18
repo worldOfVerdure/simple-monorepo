@@ -10,7 +10,7 @@ import {
   FormBehaviorRulebook,
   FormValidationMessages,
   RulebookGetValidationMessageArgs
-} from '@/components/elevated/Form/helpers/types';
+} from '../helpers/types';
 
 const scriptTagPattern = /<\s*script\b/i;
 const htmlTagPattern = /<\s*\/?\s*[a-z][^>]*>/i;
@@ -58,15 +58,15 @@ export const invalidFocusValid: FormBehaviorRulebook = {
   getValidationMessage: ({ fieldName, control, validationMessages }: RulebookGetValidationMessageArgs) =>
     getMessageFromValidity(fieldName, control, validationMessages),//~See below for explanation
   getValidationFlowStatus: ({ fieldName, focusedField, touchedFields, errors }) => {
-    // if (focusedField === fieldName) {
-    //   return 'focus';
-    // }
-
-    if (!touchedFields[fieldName]) {
-      return 'idle';
+    if (touchedFields[fieldName]) {
+      return errors[fieldName] ? 'invalid' : 'valid';
     }
 
-    return errors[fieldName] ? 'invalid' : 'valid';
+    if (focusedField === fieldName) {
+      return 'focus';
+    }
+
+    return 'idle';
   },
   getFieldMessage: ({ fieldName, errors }) => {
     if (!errors[fieldName]) {

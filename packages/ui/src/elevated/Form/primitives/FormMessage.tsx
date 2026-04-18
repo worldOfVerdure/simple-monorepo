@@ -1,4 +1,4 @@
-import { cn } from '@/lib/cn';
+import { cn } from '../../../lib/cn';
 import { useFormState, useFormTheme } from '../context/formContext';
 import { getMessageId } from '../helpers/ids';
 import { useFieldMessage } from '../helpers/state';

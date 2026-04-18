@@ -1,4 +1,4 @@
-import { cn } from '@/lib/cn';
+import { cn } from '../../../lib/cn';
 import { useFormTheme } from '../context/formContext';
 import { FormFieldHeaderProps } from '../helpers/types';
 

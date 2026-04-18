@@ -4,7 +4,7 @@
 
 import * as Form from '@radix-ui/react-form';
 import { useId, useMemo, useState } from 'react';
-import { cn } from '@/lib/cn';
+import { cn } from '../../../lib/cn';
 import {
   FormStateContext,
   type FormStateContextValue,

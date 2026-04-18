@@ -1,5 +1,5 @@
 import * as Form from '@radix-ui/react-form';
-import { cn } from '@/lib/cn';
+import { cn } from '../../../lib/cn';
 import { useFormTheme } from '../context/formContext';
 import { useValidationFlowStatus } from '../helpers/state';
 import { FormFieldProps } from '../helpers/types';

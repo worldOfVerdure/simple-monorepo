@@ -5,10 +5,7 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationMap": true,
-    "noEmit": false,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "noEmit": false
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]

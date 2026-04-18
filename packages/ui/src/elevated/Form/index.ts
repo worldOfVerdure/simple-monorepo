@@ -9,7 +9,7 @@ export {
   FormRoot
 } from './primitives';
 
-export { EmailControl, TextControl, TelControl, TextareaControl } from './controls';
+export { EmailControl, TextControl, TelControl, TextareaControl, CEmailControl, CTextControl, CTextareaControl } from './controls';
 
 export { invalidFocusValid, idleInvalidRule } from './rulebooks';
 

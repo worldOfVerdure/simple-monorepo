@@ -1,5 +1,5 @@
 import * as Form from '@radix-ui/react-form';
-import { cn } from '@/lib/cn';
+import { cn } from '../../../lib/cn';
 import { useFormState, useFormTheme } from '../context/formContext';
 import { getControlId } from '../helpers/ids';
 import { FormLabelProps } from '../helpers/types';

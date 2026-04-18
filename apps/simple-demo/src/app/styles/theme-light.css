@@ -18,13 +18,13 @@
   --color-primary-contrast: #fff;
 
   /* Feedback */
-  --color-success: green;
-  --color-success-focus: lightgreen;
-  --color-error: red;
-  --color-error-focus: pink;
+  --color-success: #044d14;
+  --color-success-focus: #0eb44b;
+  --color-error: #9c1d1d;
+  --color-error-focus: #eb5555;
 
   /* Focus */
-  --color-focus: #00d4ff;
+  --color-focus: #1d4ed8;
 
   /* Font Family */
   /* --font-family-hero: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
