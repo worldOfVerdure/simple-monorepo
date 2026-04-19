@@ -9,17 +9,17 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "^16.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@radix-ui/react-form": "^0.1.8",
+    "next": "*",
+    "react": "*",
+    "react-dom": "*",
+    "@radix-ui/react-form": "*",
     "@simple-monorepo/ui": "*",
     "@simple-monorepo/design-system": "*"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "typescript": "^5.9.0"
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "typescript": "*"
   }
 }

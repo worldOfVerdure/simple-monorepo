@@ -1,0 +1,42 @@
+:root {
+  /* Backgrounds */
+  --color-bg-light: #00D4FF;
+  --color-bg-dark: #020024;
+  /* --color-bg-depth: gray; */
+  --color-surface: #f7f8fa;
+
+  /* Text */
+  --color-text-light: #f7f8fa;
+  --color-text-dark: #020024;
+  --color-text-muted: #475569;
+
+  /* Borders */
+  --color-border: #020024;
+
+  /* Brand */
+  --color-primary: #090979;
+  --color-primary-contrast: #f30b0b;
+
+  /* Feedback */
+  --color-success: #044d14;
+  --color-success-focus: #0eb44b;
+  --color-error: #9c1d1d;
+  --color-error-focus: #eb5555;
+
+  /* Focus */
+  --color-focus: #00D4FF;
+
+  /* Font Family */
+  /* --font-family-hero: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
+                      Arial, sans-serif; */
+  --font-family-header: var(--font-work-sans), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-body: var(--font-noto-sans), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "JetBrains Mono",
+                      "Fira Code", "Segoe UI Mono", "Ubuntu Mono", "Courier New", monospace; */
+}
+
+body {
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
+  padding: var(--space-5) 0;
+}

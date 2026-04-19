@@ -1,0 +1,126 @@
+.heroContainer {
+  background: #020024;
+  background: linear-gradient(#020024 0%, #090979 60%, #00d4ff 100%);
+  height: 100vh;
+  position: relative;
+}
+
+.navThemeSentinel {
+  height: 1px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 1px;
+}
+
+.navThemeSentinelTop {
+  top: 0;
+}
+
+.navThemeSentinelBright {
+  top: 75%;
+}
+
+.heroStack {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.heroH1, .heroH2 {
+  color: var(--color-text-light);;
+  font-size: clamp(2.3rem, 2.06rem + 0.8vw, 2.7rem);
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 1.6s ease, opacity 1.6s ease-in;
+}
+
+.heroH1Name {
+  color: var(--color-primary-contrast);
+  font-weight: 800;
+}
+
+.heroH2 {
+  padding-bottom: 2rem;
+}
+
+.heroLink {
+  display: inline-block;
+  letter-spacing: .1rem;
+  opacity: 1;
+  transition: opacity 1.6s ease-in;
+  position: relative;
+
+  &::after {
+    box-shadow: 0 0 10px var(--color-primary-contrast), 0 0 30px var(--color-primary-contrast), 0 0 60px var(--color-primary-contrast);
+    color: var(--color-primary-contrast);
+    content: "";
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity .8s ease;
+  }
+
+  &:hover::after, &:focus-visible::after {
+    opacity: 1;
+  }
+
+  &:hover, &:focus-visible {
+    transform: none;
+  }
+}
+
+@starting-style {
+  .heroH1,
+  .heroH2,
+  .heroLink {
+    opacity: 0;
+  }
+
+  .heroH1 {
+    transform: translateX(-100%);
+  }
+
+  .heroH2 {
+    transform: translateX(100%);
+  }
+}
+
+.heroLinkLabel {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--font-size-3);
+  gap: var(--space-3);
+}
+
+@media (--bp-up-xs) {
+  .heroH1,
+  .heroH2 {
+    font-size: var(--text-heading);
+  }
+}
+
+@media (--bp-up-sm) {
+  .heroH1,
+  .heroH2 {
+    font-size: var(--text-display);
+  }
+}
+
+@media (max-height: 420px) and (orientation: landscape) {
+  .heroStack {
+    top: 55%;
+  }
+
+  .heroH1,
+  .heroH2 {
+    font-size: clamp(2.4rem, 2.26rem + 1.2vh, 2.8rem);
+  }
+
+  .heroLinkLabel {
+    font-size: clamp(1.6rem, 1.52rem + 0.3vh, 1.8rem);
+  }
+}

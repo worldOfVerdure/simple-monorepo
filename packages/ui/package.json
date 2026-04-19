@@ -16,19 +16,19 @@
     "*.css"
   ],
   "peerDependencies": {
-    "@radix-ui/react-form": "^0.1.8",
-    "next": "^16.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@radix-ui/react-form": ">=0.1.8 <1",
+    "next": ">=16 <17",
+    "react": ">=19 <20",
+    "react-dom": ">=19 <20"
   },
   "devDependencies": {
-    "@radix-ui/react-form": "^0.1.8",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "next": "^16.0.0",
-    "typescript": "^5.9.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "@radix-ui/react-form": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "next": "*",
+    "typescript": "*",
+    "react": "*",
+    "react-dom": "*",
     "tsup": "^8.0.0"
   },
   "scripts": {

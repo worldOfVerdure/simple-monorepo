@@ -1,0 +1,29 @@
+{
+  "name": "@simple-monorepo/personal-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@simple-monorepo/design-system": "*",
+    "@simple-monorepo/ui": "*",
+    "@radix-ui/react-form": "*",
+    "@radix-ui/react-icons": "*",
+     "@upstash/ratelimit": "*",
+    "@upstash/redis": "*",
+    "next": "*",
+    "react": "*",
+    "react-dom": "*",
+    "resend": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "typescript": "*"
+  }
+}
