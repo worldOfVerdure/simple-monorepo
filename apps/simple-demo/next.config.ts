@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  reactCompiler: true,
   turbopack: {
     root: monorepoRoot,
   },

@@ -1,11 +1,11 @@
-[data-theme='light'] {
+[data-theme='dark'] {
   /* Backgrounds */
-  --color-bg: #00D4FF;
+  --color-bg: #020024;
   /* --color-bg-depth: gray; */
   --color-surface: #f7f8fa;
 
   /* Text */
-  --color-text: #f7f8fa;
+  --color-text: #020024;
   --color-text-muted: #475569;
 
   /* Borders */

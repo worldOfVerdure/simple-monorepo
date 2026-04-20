@@ -10,8 +10,11 @@ import { metadata } from './metadata';
 //styles
 import '@simple-monorepo/design-system/src/reset.css';
 import '@simple-monorepo/design-system/src/tokens.css';
+import './styles/theme-base.css';
 import './styles/theme-light.css';
+import './styles/theme-dark.css';
 import '@simple-monorepo/design-system/src/base.css';
+import './styles/app-base.css';
 import '@simple-monorepo/design-system/src/utilities.css';
 
 export { metadata };

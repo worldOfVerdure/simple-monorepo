@@ -24,3 +24,6 @@ export type {
   FormSlots,
   FormValidationMessages
 } from './Form/helpers/types';
+
+export { ThemeProvider, ThemeContext, useTheme } from './theme';
+export type { ThemeContextValue } from './theme';

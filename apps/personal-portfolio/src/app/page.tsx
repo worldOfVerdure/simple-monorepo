@@ -7,10 +7,14 @@ import { Hero } from '../components/hero';
 export default function HomePage() {
   return (
     <main>
-      <Hero />
-      {/* <Projects /> */}
-      <About />
-      {/* <Contact /> */}
+      <section data-theme="dark">
+        <Hero />
+      </section>
+      <section data-theme="light">
+        {/* <Projects /> */}
+        <About />
+        {/* <Contact /> */}
+      </section>
     </main>
   );
 }

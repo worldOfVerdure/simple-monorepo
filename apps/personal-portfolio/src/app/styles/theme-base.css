@@ -1,0 +1,9 @@
+:root {
+  /* Font Family */
+  /* --font-family-hero: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
+      Arial, sans-serif; */
+  --font-family-header: var(--font-work-sans), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-body: var(--font-noto-sans), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "JetBrains Mono",
+      "Fira Code", "Segoe UI Mono", "Ubuntu Mono", "Courier New", monospace; */
+}

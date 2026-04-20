@@ -30,7 +30,7 @@
 }
 
 .heroH1, .heroH2 {
-  color: var(--color-text-light);;
+  color: var(--color-text);;
   font-size: clamp(2.3rem, 2.06rem + 0.8vw, 2.7rem);
   opacity: 1;
   transform: translateX(0);
