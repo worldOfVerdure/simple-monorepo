@@ -1,0 +1,60 @@
+.projectImageContainer {
+  background-color: var(--color-bg-depth);
+  padding: var(--space-2) var(--space-4);
+  max-width: 97%;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.projectImageContainer:hover {
+  transform: scale(1.02);
+}
+
+.projectImg {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 65rem;
+  width: 80vw;
+}
+
+.projectActionsContainer {
+  max-width: 57.5rem;
+}
+
+.projectDescription {
+  width: 85%;
+}
+
+.projectLinkBtns {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.projectLinkLiveBtn:hover, .projectLinkLiveBtn:focus-visible {
+  background-color: #1c1cf0;
+}
+
+.projectLinkGithubBtn:hover, .projectLinkGithubBtn:focus-visible {
+  background-color: #babec5;
+}
+
+@media (--bp-up-md) {
+  li:nth-child(odd) .projectImageContainer {
+    padding: var(--space-2) var(--space-5) var(--space-2) var(--space-1);
+  }
+
+  li:nth-child(even) .projectImageContainer {
+    padding: var(--space-2) var(--space-1) var(--space-2) var(--space-5);
+  }
+
+  .projectDescription {
+    max-width: 55rem;
+  }
+}
+
+@media (--bp-up-md) and (--bp-down-lg) {
+  .projectImg {
+    max-width: 50rem;
+    width: 40vw;
+  }
+}

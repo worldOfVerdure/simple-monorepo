@@ -147,9 +147,9 @@ export const About = () => {
                 <Link
                   classes={{ label: styles.resumeButtonLabel }}
                   className={styles.resumeBtn}
+                  download
                   href="/andrew_chupka_resume.pdf"
                   prefetch={false}
-                  download
                   size="sm"
                   type="application/pdf"
                   variant="buttonSecondary"

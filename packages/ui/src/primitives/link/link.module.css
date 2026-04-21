@@ -36,7 +36,7 @@
 
 .text {
   --link-bg: transparent;
-  --link-color: var(--color-primary);
+  --link-color: var(--color-text);
   --link-border: transparent;
   --link-radius: 0;
   --link-px: 0;
@@ -64,7 +64,8 @@
 }
 
 .text:hover .label::after,
-.text:focus-visible .label::after {
+.text:focus-visible .label::after,
+.text[aria-current='location'] .label::after {
   transform: scaleX(1);
 }
 

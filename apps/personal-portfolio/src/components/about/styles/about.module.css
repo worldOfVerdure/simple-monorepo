@@ -47,6 +47,7 @@
 
 .resumeBtn:hover, .resumeBtn:focus-visible {
   background-color: #babec5;
+  transform: none;
 }
 
 .techStackH3 {
