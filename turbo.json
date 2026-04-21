@@ -1,5 +1,12 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
+  "globalEnv": [
+    "RESEND_API_KEY",
+    "CONTACT_EMAIL",
+    "UPSTASH_REDIS_REST_URL",
+    "UPSTASH_REDIS_REST_TOKEN",
+    "NEXT_PUBLIC_SITE_URL"
+  ],
   "tasks": {
     "dev": {
       "cache": false,
