@@ -20,14 +20,14 @@ export type ProjectCardProps = {
 
 export const projectsData: ProjectCardProps[] = [
   {
-    projectTitle: 'Simple Template',
+    projectTitle: 'Simple Monorepo Demo',
     imgSrc: simpleTemplateImg,
     imgAlt: 'A thumbnail of the Simple Template project.',
     imgHeight: 4023,
     imgWidth: 7152,
-    liveProject: 'https://simple-template-gamma.vercel.app/',
-    github: 'https://github.com/worldOfVerdure/simpleTemplate',
-    description: 'A design-sytem and template I built, inspired by MUI\'s primitives with Radix UI for headless logic and accessibility.'
+    liveProject: 'https://simple-monorepo-gamma.vercel.app/',
+    github: 'https://github.com/worldOfVerdure/simple-monorepo/tree/main/apps/simple-demo',
+    description: 'A demo starting point for a monorepo with Turborepo, React, Next.js and TypeScript.'
   },
   {
     projectTitle: 'Animated D3.js Graph',
