@@ -7,7 +7,7 @@ const contactEmail = 'contact@andrewchupka.com';
 
 export const Privacy = () => {
   return (
-    <section className={`sectionContainer ${styles.policySection}`}>
+    <section className={`sectionContainer ${styles.policySection}`} data-theme="light">
        <span
         aria-hidden="true"
         className={`${styles.navThemeSentinel} ${styles.navThemeSentinelDark}`}

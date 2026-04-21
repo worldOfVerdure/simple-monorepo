@@ -10,6 +10,19 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   reactCompiler: true,
+  async headers() {
+    return [
+      {
+        source: '/andrew_chupka_resume.pdf',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="andrew_chupka_resume.pdf"',
+          },
+        ],
+      },
+    ];
+  },
   turbopack: {
     root: monorepoRoot,
   },
