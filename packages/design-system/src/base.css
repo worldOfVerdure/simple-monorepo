@@ -23,3 +23,28 @@ p {
   font-size: var(--text-body);
   line-height: var(--line-height-normal);
 }
+
+:where(
+  a[href],
+  button,
+  input:not([type='hidden']),
+  select,
+  textarea,
+  summary,
+  [tabindex]:not([tabindex='-1'])
+):focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+:where(
+  a[href],
+  button,
+  input:not([type='hidden']),
+  select,
+  textarea,
+  summary,
+  [tabindex]:not([tabindex='-1'])
+):focus:not(:focus-visible) {
+  outline: none;
+}

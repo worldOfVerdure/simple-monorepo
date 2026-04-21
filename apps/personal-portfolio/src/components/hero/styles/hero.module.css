@@ -26,7 +26,6 @@
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
 }
 
 .heroH1, .heroH2 {
@@ -50,9 +49,9 @@
   border: .2rem solid var(--color-primary-contrast);
   display: inline-block;
   letter-spacing: .1rem;
+  position: relative;
   opacity: 1;
   transition: opacity 1.6s ease-in;
-  position: relative;
 
   &::after {
     box-shadow: 0 0 10px var(--color-primary-contrast), 0 0 30px var(--color-primary-contrast), 0 0 60px var(--color-primary-contrast);
@@ -72,6 +71,11 @@
   &:hover, &:focus-visible {
     transform: none;
   }
+}
+
+.heroLink:hover,
+.heroLink:focus-visible {
+  outline-offset: 2rem;
 }
 
 @starting-style {

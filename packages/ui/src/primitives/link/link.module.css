@@ -29,11 +29,6 @@
   text-decoration: var(--link-hover-decoration);
 }
 
-.link:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
 .text {
   --link-bg: transparent;
   --link-color: var(--color-text);
@@ -95,7 +90,7 @@
 
 .buttonPrimary {
   --link-bg: var(--color-primary);
-  --link-color: var(--color-primary-contrast);
+  --link-color: var(--color-text);
   --link-border: transparent;
   --link-decoration: none;
   --link-hover-decoration: none;
@@ -118,6 +113,15 @@
 }
 
 .buttonPrimary:hover,
+.buttonSecondary:hover,
+.buttonGhost:hover {
+  transform: translateY(-2px);
+}
+
+.label {
+  display: inline-block;
+}
+
 .buttonSecondary:hover,
 .buttonGhost:hover {
   transform: translateY(-2px);

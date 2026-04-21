@@ -99,10 +99,8 @@ export const Header = ({links}: HeaderProps) => {
     };
   }, [pathname]);
 
-  const navThemeClass = navTheme === 'light' ? styles.navLight : styles.navDark;
-
   return (
-    <header ref={headerRef} className={`${styles.header} ${navThemeClass} full-width`} >
+    <header className={`${styles.header} full-width`} data-theme={navTheme} ref={headerRef} >
       <nav>
         <Stack
           as="ul"

@@ -1,24 +1,11 @@
 .header {
-  --header-nav-text: var(--color-text-dark);
-  --header-bg: #ffffff;
-
-  background-color: var(--header-bg);
+  background-color: var(--color-bg);
   left: 0;
   padding: var(--space-4) 0;
   position: fixed;
   top: 0;
   transition: background-color 240ms ease, color 240ms ease;
   z-index: 20;
-}
-
-.navLight {
-  --header-nav-text: #020024;
-  --header-bg: #00d4ff;
-}
-
-.navDark {
-  --header-nav-text: #00d4ff;
-  --header-bg: #020024;
 }
 
 .linkStack{
@@ -32,7 +19,7 @@
 
 .links {
   font-size: var(--text-body);
-  --link-color: var(--header-nav-text);
-  color: var(--header-nav-text);
+  --link-color: var(--color-text);
+  color: var(--color-text);
   transition: color 1240ms ease;
 }

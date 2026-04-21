@@ -3,12 +3,11 @@
 import { breakpoints } from '@simple-monorepo/ui';
 //components
 import Image from 'next/image';
-import { Link } from '@/components/primitives/Link/Link';
-import { Stack } from '@/components/primitives/Stack/Stack';
+import { Link, Stack } from '@simple-monorepo/ui';
 //hooks
-import { useBreakpointUp } from '@/lib/useMediaQuery';
+import { useBreakpointUp } from '@simple-monorepo/ui';
 //styles
-import styles from './styles/projectCard.module.css';
+import styles from './styles/project-card.module.css';
 //types
 import type { ProjectCardProps } from '../../projects-data/projectsData';
 
@@ -48,6 +47,7 @@ export const ProjectCard = ({
             <p className={`${styles.projectDescription} text-center`}>{description}</p>
             <Stack direction="row" gap="var(--space-5)" >
               <Link
+                data-theme="dark"
                 className={`${styles.projectLinkLiveBtn} ${styles.projectLinkBtns}`}
                 href={liveProject}
                 size="lg"

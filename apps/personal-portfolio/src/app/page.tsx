@@ -2,7 +2,7 @@
 import { About } from '../components/about/About';
 // import { Contact } from '../components/contact';
 import { Hero } from '../components/hero';
-// import { Projects } from '../components/projects';
+import { Projects } from '../components/projects';
 
 export default function HomePage() {
   return (
@@ -11,7 +11,7 @@ export default function HomePage() {
         <Hero />
       </section>
       <section data-theme="light">
-        {/* <Projects /> */}
+        <Projects />
         <About />
         {/* <Contact /> */}
       </section>

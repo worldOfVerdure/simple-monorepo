@@ -30,12 +30,21 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+.projectLinkLiveBtn {
+  --color-focus: #020024;
+}
+
+.projectLinkBtns:hover,
+.projectLinkBtns:focus-visible {
+  transform: none;
+}
+
 .projectLinkLiveBtn:hover, .projectLinkLiveBtn:focus-visible {
   background-color: #1c1cf0;
 }
 
 .projectLinkGithubBtn:hover, .projectLinkGithubBtn:focus-visible {
-  background-color: #babec5;
+  background-color: #e1e4e9;
 }
 
 @media (--bp-up-md) {

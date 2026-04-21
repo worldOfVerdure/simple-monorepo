@@ -21,7 +21,7 @@ export const Hero = () => {
         data-nav-theme="dark"
         data-nav-sentinel
       />
-      <Stack className={styles.heroStack} >
+      <Stack className={`${styles.heroStack} full-width`} >
         <h1 className={`${styles.heroH1} font-header text-center`}>
           I&apos;m <span className={styles.heroH1Name}>Andrew Chupka</span>
         </h1>

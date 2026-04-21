@@ -1,8 +1,8 @@
 [data-theme='light'] {
   /* Backgrounds */
   --color-bg: #00D4FF;
-  /* --color-bg-depth: gray; */
-  --color-surface: #d4e0f8;
+  --color-bg-depth: #009dbe;
+  --color-surface: #f7f8fa;
 
   /* Text */
   --color-text: #020024;
@@ -22,5 +22,5 @@
   --color-error-focus: #eb5555;
 
   /* Focus */
-  --color-focus: #00D4FF;
+  --color-focus: #020024;
 }
