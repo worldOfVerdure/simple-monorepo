@@ -5,8 +5,8 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
 const SOCIAL_PREVIEW_IMAGE = `${SITE_URL}/social-preview.jpg`;
 
 export const metadata: Metadata = {
-  title: 'Simple Demo | Full-Stack Web Developer Tech Stack',
-  description: 'This is my personal tech stack I use to build performant websites and applications. Fueled by the React Ecosytem: React, Next.js, Express.js, and more. Get in touch!',
+  title: 'Andrew Chupka | Full-Stack Web Developer Portfolio',
+  description: 'I am a fullstack developer who loves building responsive, performant websites. I have experience with React, Next.js, Express.js, and more. Get in touch!',
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,
@@ -17,24 +17,24 @@ export const metadata: Metadata = {
   },
   authors: [{ name: 'Andrew Chupka', url: SITE_URL }],
   openGraph: {
-    title: 'Simple Demo | Full-Stack Web Developer Tech Stack',
-    description: 'This is my personal tech stack I use to build performant websites and applications. Fueled by the React Ecosytem: React, Next.js, Express.js, and more. Get in touch!',
+    title: 'Andrew Chupka | Full-Stack Web Developer Portfolio',
+    description: 'I am a fullstack developer who loves building responsive, performant websites. I have experience with React, Next.js, Express.js, and more. Get in touch!',
     url: SITE_URL,
-    siteName: 'Simple Demo | Full-Stack Web Developer Tech Stack',
+    siteName: 'Andrew Chupka | Full-Stack Web Developer Portfolio',
     type: 'website',
     images: [
       {
         url: SOCIAL_PREVIEW_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'Simple Demo | Full-Stack Web Developer Tech Stack'
+        alt: 'Andrew Chupka | Full-Stack Web Developer Portfolio'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Simple Demo | Full-Stack Web Developer Tech Stack',
-    description: 'This is my personal tech stack I use to build performant websites and applications. Fueled by the React Ecosytem: React, Next.js, Express.js, and more. Get in touch!',
+    title: 'Andrew Chupka | Full-Stack Web Developer Portfolio',
+    description: 'I am a fullstack developer who loves building responsive, performant websites. I have experience with React, Next.js, Express.js, and more. Get in touch!',
     images: [SOCIAL_PREVIEW_IMAGE]
   },
   icons: {

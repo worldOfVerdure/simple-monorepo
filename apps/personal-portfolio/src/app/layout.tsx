@@ -1,5 +1,5 @@
 //components
-// import { Footer } from '../components/';
+import { Footer } from '../components/footer';
 import { Header } from '../components/header/';
 //data
 import { staticHeaderData } from '../components/header/header-data/staticHeaderData';
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header links={staticHeaderData} />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

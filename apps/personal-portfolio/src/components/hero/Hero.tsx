@@ -7,7 +7,7 @@ import styles from './styles/hero.module.css';
 
 export const Hero = () => {
   return (
-    <section className={`${styles.heroContainer} full-width`} id="home">
+    <section className={`${styles.heroContainer} full-width`} data-theme="dark" id="home">
       <span
         aria-hidden="true"
         className={`${styles.navThemeSentinel} ${styles.navThemeSentinelTop}`}
