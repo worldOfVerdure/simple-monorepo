@@ -1,70 +1,69 @@
-# simple-demo
+# personal-portfolio
 
-Demo Next.js app inside the simple-monorepo workspace.
+A personal site for showcasing projects, experience, and a contact form.
 
-Live site: https://simple-template-gamma.vercel.app/
+Live site: https://www.andrewchupka.com/
 
-## What This App Is
+## About
 
-`simple-demo` is the runnable app in `apps/simple-demo` that consumes shared workspace packages:
+This app lives in `apps/personal-portfolio` inside the monorepo. It uses shared UI and styling packages from the workspace, but this is the main app that powers the live portfolio site.
 
-- `@simple-monorepo/ui` for reusable primitives and elevated form building blocks
-- `@simple-monorepo/design-system` for base CSS, tokens, and global utilities
+If you are browsing the repo, this is the folder to focus on for portfolio pages, content, and contact behavior.
 
-This app is where components are assembled and validated in a real Next.js runtime.
+## Tech Used
 
-## Monorepo Context
-
-This is not a standalone template folder. It is one app in a monorepo managed by npm workspaces and Turbo.
-
-- Workspace root scripts (`simple-monorepo/package.json`) orchestrate tasks across apps and packages
-- App-level scripts (`apps/simple-demo/package.json`) run only this app
-- `apps/simple-demo/tsconfig.json` maps `@simple-monorepo/ui` to source for local development so Next.js compiles UI code directly
-
-## Stack
-
-- Next.js (App Router)
-- React 19
-- TypeScript (strict)
+- Next.js
+- React
+- TypeScript
 - CSS Modules
-- Shared design tokens via `@simple-monorepo/design-system`
 
-## Run
+## Local Development
 
 From monorepo root:
 
 ```bash
 npm install
-npm run dev -w @simple-monorepo/simple-demo
+npm run dev -w @simple-monorepo/personal-portfolio
 ```
 
-Or from this folder:
+Or run it directly from this folder:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build And Health Checks
+## Build
 
 From monorepo root:
 
 ```bash
 npm run build -w @simple-monorepo/ui
-npm run build -w @simple-monorepo/simple-demo
+npm run build -w @simple-monorepo/personal-portfolio
 npm run build
 ```
 
-The final `npm run build` validates the full monorepo build graph through Turbo.
+The last command checks the full monorepo build.
 
-## Styling And Components
+## Project Structure Notes
 
-- Theme tokens live in `src/app/styles/theme-light.css`
-- Demo composition lives in `src/components/test`
-- Form behavior is rulebook-driven through `@simple-monorepo/ui` exports (`invalidFocusValid`, `idleInvalidRule`)
+- App routes and layout: `src/app`
+- Reusable sections/components: `src/components`
+- Theme files: `src/app/styles`
+- Project card data: `src/components/projects/projects-data`
 
-## Deployment Note
+## Environment Variables (For Contact Form)
 
-For Vercel monorepo deployment, set project root directory to:
+Add these when deploying:
 
-`apps/simple-demo`
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL`
+- `UPSTASH_REDIS_REST_URL`
+- `UPSTASH_REDIS_REST_TOKEN`
+- `NEXT_PUBLIC_SITE_URL`
+
+## Vercel Deploy Note
+
+If deploying from the monorepo on Vercel, use this root directory:
+
+`apps/personal-portfolio`

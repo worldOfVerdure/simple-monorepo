@@ -64,7 +64,7 @@ export const Footer = () => {
           <Link
             classes={{label: styles.linkText}}
             className={`${styles.linkText} ${styles.sourceCode}`}
-            href="https://github.com/worldOfVerdure/Portfoliov3/tree/main/frontend"
+            href="https://github.com/worldOfVerdure/simple-monorepo/tree/main/apps/personal-portfolio"
             variant="text"
           >
             Site's Source Code
