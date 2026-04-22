@@ -16,14 +16,14 @@ export {
   CTextareaControl,
   invalidFocusValid,
   idleInvalidRule
-} from './Form';
+} from './form';
 
 export type {
   FormBehaviorRulebook,
   FormRootProps,
   FormSlots,
   FormValidationMessages
-} from './Form/helpers/types';
+} from './form/helpers/types';
 
 export { ThemeProvider, ThemeContext, useTheme } from './theme';
 export type { ThemeContextValue } from './theme';
