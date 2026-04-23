@@ -10,7 +10,14 @@ export const CustomButtons = () => {
     <>
       <SectionHeading>Buttons</SectionHeading>
       <CustomStackContent>
-        <Button className={styles.actionsContent} size="sm" type="button" >Primary</Button>
+        <Button
+          className={styles.actionsContent}
+          data-theme="dark"
+          size="sm"
+          type="button"
+        >
+          Primary
+        </Button>
         <Button
           className={styles.actionsContent}
           size="md"

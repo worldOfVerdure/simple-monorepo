@@ -1,7 +1,7 @@
-import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { CSSProperties, ReactNode } from 'react';
+import NextLink, { type LinkProps as NextLinkProps } from 'next/link';
+import type { CSSProperties, ReactNode } from 'react';
 import { cn } from '../../lib/cn';
-import styles from './link.module.css';
+import styles from './styles/link.module.css';
 
 type LinkVariant = 'text' | 'buttonPrimary' | 'buttonSecondary' | 'buttonGhost';
 type LinkSize = 'none' | 'sm' | 'md' | 'lg' | 'compact-lg';

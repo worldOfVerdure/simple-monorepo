@@ -1,13 +1,13 @@
-[data-theme="app"] {
+[data-base-theme="app"] {
   /* Text */
-  --color-text-muted: #475569;
+  --color-text-muted: #202e41;
+
+   /* Brand */
+  --color-primary: #0f766e;
+  --color-primary-contrast: #fff;
 
   /* Borders */
   --color-border: #020024;
-
-  /* Brand */
-  --color-primary: #090979;
-  --color-primary-contrast: #f30b0b;
 
   /* Feedback */
   --color-success: #044d14;
@@ -15,11 +15,16 @@
   --color-error: #9c1d1d;
   --color-error-focus: #eb5555;
 
+  /* Focus */
+  --color-focus: #1d4ed8;
+
   /* Font Family */
   /* --font-family-hero: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
       Arial, sans-serif; */
-  --font-family-header: var(--font-work-sans), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-family-body: var(--font-noto-sans), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-header: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
+                        Arial, sans-serif;
+  --font-family-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+                      Arial, sans-serif;
   /* --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "JetBrains Mono",
       "Fira Code", "Segoe UI Mono", "Ubuntu Mono", "Courier New", monospace; */
 }

@@ -1,10 +1,10 @@
-[data-theme='light'] {
+[data-theme='dark'] {
   /* Backgrounds */
-  --color-bg: #ececec;
+  --color-bg: #0f172a;
   /* --color-bg-depth: gray; */
-  --color-surface: #f7f8fa;
+  --color-surface: #1e293b;
 
   /* Text */
-  --color-text: #0f172a;
+  --color-text: #ececec;
   /* --color-text-secondary: black; */
 }

@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, CSSProperties } from 'react';
 import { cn } from '../../lib/cn';
-import styles from './button.module.css';
+import styles from './styles/button.module.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 type ButtonSize = 'none' | 'sm' | 'md' | 'lg';

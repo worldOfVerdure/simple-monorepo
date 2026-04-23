@@ -1,5 +1,4 @@
 'use client';
-
 //components
 import {
   Button,
@@ -55,12 +54,12 @@ export const ControlledForm = () => {
     <>
       <SectionHeading>Controlled Forms</SectionHeading>
       <div className={styles.rulebookSwitcher}>
-        <label className={styles.rulebookLabel} htmlFor="controlled-rulebook-select">
+        <label className={styles.rulebookLabel} htmlFor="rulebook-select">
           Rulebook
         </label>
         <select
           className={styles.rulebookSelect}
-          id="controlled-rulebook-select"
+          id="rulebook-select"
           value={rulebookName}
           onChange={(event) => setRulebookName(event.target.value)}
         >
