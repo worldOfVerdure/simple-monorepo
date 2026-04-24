@@ -14,16 +14,24 @@ export {
   CEmailControl,
   CTextControl,
   CTextareaControl,
+  contactFormMessages,
   invalidFocusValid,
   idleInvalidRule
 } from './form';
 
 export type {
+  CInputControlProps,
+  CTextareaControlProps,
+  ContactFormMessages,
   FormBehaviorRulebook,
   FormRootProps,
   FormSlots,
-  FormValidationMessages
-} from './form/helpers/types';
+  FormValidationMessages,
+  InputControlProps,
+  SharedInputControlProps,
+  SharedTextareaControlProps,
+  TextareaControlProps
+} from './form';
 
 export { ThemeProvider, ThemeContext, useTheme } from './theme';
 export type { ThemeContextValue } from './theme';

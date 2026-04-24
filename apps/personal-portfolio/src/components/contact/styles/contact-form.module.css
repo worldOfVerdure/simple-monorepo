@@ -152,16 +152,16 @@
   justify-content: flex-end;
 }
 
-.submitMessage[role="status"] {
+.submitMessage {
   display: inline;
   font-size: var(--text-caption);
   font-weight: 400;
   margin: 0;
-  text-align: left;
-  width: fit-content;
+  text-align: right;
+  width: 100%;
 }
 
-.submitMessage[role="status"]:empty {
+.submitMessage:empty {
   visibility: hidden;
 }
 
@@ -170,7 +170,7 @@
     width: min(90%, 64rem);
   }
 
-  .submitMessage[role="status"] {
+  .submitMessage {
     font-size: var(--text-body);
   }
 }

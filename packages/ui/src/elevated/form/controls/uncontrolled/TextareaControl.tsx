@@ -1,11 +1,10 @@
 import * as Form from '@radix-ui/react-form';
-import { ChangeEvent, ComponentPropsWithoutRef } from 'react';
 import { cn } from '../../../../lib/cn';
 import { useFormState, useFormTheme } from '../../context/formContext';
 import { composeHandlers } from '../../helpers/composeHandlers';
 import { getControlId, getMessageId } from '../../helpers/ids';
 import { useValidationFlowStatus } from '../../helpers/state';
-import { SharedControlProps } from '../../helpers/types';
+import { type SharedTextareaControlProps } from '../../helpers/types';
 import { useUncontrolValidationHandlers } from './useUncontrolValidationHandlers';
 
 /*
@@ -13,11 +12,7 @@ Omit onFocus, onBlur, and onInvalid from the native textarea props since we're h
 internally for validation purposes. The name prop is also required for our form state management, so
 we can include that in the SharedControlProps.
 */
-export type TextareaControlProps =
-  Omit<ComponentPropsWithoutRef<'textarea'>, 'onFocus' | 'onBlur' | 'onInvalid' | 'onChange'> &
-  SharedControlProps & {
-    onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  };
+export type TextareaControlProps = SharedTextareaControlProps;
 
 export function TextareaControl({
   className,

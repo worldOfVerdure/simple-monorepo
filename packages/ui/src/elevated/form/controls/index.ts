@@ -6,3 +6,7 @@ export { CEmailControl } from './controlled/CEmailControl';
 export { CTelControl } from './controlled/CTelControl';
 export { CTextareaControl } from './controlled/CTextareaControl';
 export { CTextControl } from './controlled/CTextControl';
+export type { InputControlProps } from './uncontrolled/BaseInputControl';
+export type { TextareaControlProps } from './uncontrolled/TextareaControl';
+export type { CInputControlProps } from './controlled/CBaseInputControl';
+export type { CTextareaControlProps } from './controlled/CTextareaControl';

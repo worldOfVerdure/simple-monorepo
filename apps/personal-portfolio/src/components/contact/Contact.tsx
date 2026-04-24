@@ -1,55 +1,32 @@
 'use client';
 //components & rulebook
 import {
-  Button,
+  ContactFormShell,
   EmailControl,
-  Fieldset,
-  FormActions,
-  FormField,
-  FormFieldHeader,
-  FormLabel,
-  FormMessage,
-  FormRoot,
-  Stack,
   TextControl,
   TextareaControl,
+  contactFormMessages,
+  type ContactFormControlAdapter,
+  type ContactFormSubmitHandler,
   invalidFocusValid
 } from '@simple-monorepo/ui';
-import { RedAsterisk } from './reuseables/red-asterisk';
-//handler
-import { type SubmitEventHandler, useState } from 'react';
-//patterns
-import { namePattern } from './form-data/patterns';
 //styles
 import formStyles from './styles/contact-form.module.css';
 import styles from './styles/contact.module.css';
-//validation messages
-import { validationMessages } from './form-data/validationMessages';
-
-type SubmitState = {
-  status: 'success' | 'error';
-  message: string;
-};
-
-type ContactFormSubmitHandler = SubmitEventHandler<HTMLFormElement>;
 
 export const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitState, setSubmitState] = useState<SubmitState | null>(null);
+  const controls: ContactFormControlAdapter = {
+    TextControl,
+    EmailControl,
+    TextareaControl
+  };
 
-  const handleSubmit: ContactFormSubmitHandler = async (event) => {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+  const handleSubmit: ContactFormSubmitHandler = async ({ values, event }) => {
     const payload = {
-      name: String(formData.get('name') ?? '').trim(),
-      email: String(formData.get('email') ?? '').trim(),
-      message: String(formData.get('message') ?? '').trim()
+      name: values.name.trim(),
+      email: values.email.trim(),
+      message: values.message.trim()
     };
-
-    setIsSubmitting(true);
-    setSubmitState(null);
 
     try {
       const response = await fetch('/api/contact', {
@@ -60,28 +37,13 @@ export const Contact = () => {
         body: JSON.stringify(payload)
       });
 
-      const data = (await response.json().catch(() => null)) as { error?: string; message?: string } | null;
-
       if (!response.ok) {
-        setSubmitState({
-          status: 'error',
-          message: data?.error ?? 'Failed to send message. Please try again.'
-        });
-        return;
+        throw new Error('Request failed');
       }
 
-      setSubmitState({
-        status: 'success',
-        message: data?.message ?? 'Message sent successfully.'
-      });
-      form.reset();
+      event.currentTarget.reset();
     } catch {
-      setSubmitState({
-        status: 'error',
-        message: 'Failed to send message. Please try again.'
-      });
-    } finally {
-      setIsSubmitting(false);
+      throw new Error('Failed to send message.');
     }
   };
 
@@ -95,8 +57,9 @@ export const Contact = () => {
          data-nav-sentinel
       />
       <h2 className="sectionH2">Contact Me</h2>
-      
-      <FormRoot
+
+      <ContactFormShell
+        controls={controls}
         classes={{
           form: formStyles.form,
           fieldset: formStyles.fieldset,
@@ -106,69 +69,19 @@ export const Contact = () => {
           control: formStyles.control,
           textarea: formStyles.textarea,
           message: formStyles.message,
-          actions: formStyles.actions
+          actions: formStyles.actions,
+          submit: formStyles.submit,
+          submitMessage: formStyles.submitMessage,
+          submitMessageSuccess: formStyles.submitMessage,
+          submitMessageError: formStyles.submitMessage,
+          submitMessagePending: formStyles.submitMessage
         }}
+        legend="Contact Me"
+        messages={contactFormMessages}
         onSubmit={handleSubmit}
         rulebook={invalidFocusValid}
-        validationMessages={validationMessages}
-      >
-        <Fieldset>
-          <FormField name="name">
-            <FormFieldHeader>
-              <FormLabel fieldName="name">Name <RedAsterisk /></FormLabel>
-              <FormMessage fieldName="name" />
-            </FormFieldHeader>
-            <TextControl autoComplete="name" name="name" pattern={namePattern} required />
-          </FormField>
-
-          <FormField name="email">
-            <FormFieldHeader>
-              <FormLabel fieldName="email">Email <RedAsterisk /></FormLabel>
-              <FormMessage fieldName="email" />
-            </FormFieldHeader>
-            <EmailControl autoComplete="email" name="email" required />
-          </FormField>
-
-          <FormField name="message">
-            <FormFieldHeader>
-              <FormLabel fieldName="message">Message <RedAsterisk /></FormLabel>
-              <FormMessage fieldName="message" />
-            </FormFieldHeader>
-            <TextareaControl minLength={10} name="message" required />
-          </FormField>
-        </Fieldset>
-        <Stack align="flex-end" gap="none" >
-          <div className={formStyles.submitMessageSlot}>
-            <p
-              aria-live="polite"
-              className={formStyles.submitMessage}
-              role="status"
-              style={{
-                color:
-                  submitState?.status === 'success'
-                    ? 'var(--color-success)'
-                    : 'var(--color-error)',
-              }}
-            >
-              {submitState?.message ?? ''}
-            </p>
-          </div>
-          
-          <FormActions>
-            <Button
-              classes={{ label: formStyles.submitLabel }}
-              className={formStyles.submit}
-              data-theme="dark"
-              disabled={isSubmitting}
-              size="lg"
-              type="submit"
-              variant="primary"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </Button>
-          </FormActions>
-        </Stack>
-      </FormRoot>
+        showLegend={false}
+      />
     </section>
   );
 }

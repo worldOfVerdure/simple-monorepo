@@ -1,18 +1,13 @@
 import * as Form from '@radix-ui/react-form';
-import { ChangeEvent, ComponentPropsWithoutRef } from 'react';
 import { cn } from '../../../../lib/cn';
 import { useFormState, useFormTheme } from '../../context/formContext';
 import { composeHandlers } from '../../helpers/composeHandlers';
 import { getControlId, getMessageId } from '../../helpers/ids';
 import { useValidationFlowStatus } from '../../helpers/state';
-import { SharedControlProps } from '../../helpers/types';
+import { type SharedTextareaControlProps } from '../../helpers/types';
 import { useControlValidationHandlers } from './useControlValidationHandlers';
 
-export type CTextareaControlProps =
-  Omit<ComponentPropsWithoutRef<'textarea'>, 'onFocus' | 'onBlur' | 'onInvalid' | 'onChange'> &
-  SharedControlProps & {
-    onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  };
+export type CTextareaControlProps = SharedTextareaControlProps;
 
 export function CTextareaControl({
   className,

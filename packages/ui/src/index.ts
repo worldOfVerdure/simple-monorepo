@@ -5,7 +5,7 @@ export * from "./primitives";
 export * from "./elevated";
 
 // production
-// export * from "./production";
+export * from "./production";
 
 //lib
 export * from "./lib";

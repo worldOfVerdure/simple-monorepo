@@ -1,5 +1,13 @@
 import * as Form from '@radix-ui/react-form';
-import { ComponentProps, CSSProperties, FocusEvent, InvalidEvent, ReactNode } from 'react';
+import {
+  type ChangeEvent,
+  type ComponentProps,
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  type FocusEvent,
+  type InvalidEvent,
+  type ReactNode
+} from 'react';
 
 export type FormFieldState = string;
 
@@ -98,4 +106,13 @@ export type SharedControlProps = {
   onFocus?: (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onBlur?: (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onInvalid?: (event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 };
+
+export type SharedInputControlProps =
+  Omit<ComponentPropsWithoutRef<'input'>, 'onFocus' | 'onBlur' | 'onInvalid' | 'onChange'> &
+  SharedControlProps;
+
+export type SharedTextareaControlProps =
+  Omit<ComponentPropsWithoutRef<'textarea'>, 'onFocus' | 'onBlur' | 'onInvalid' | 'onChange'> &
+  SharedControlProps;

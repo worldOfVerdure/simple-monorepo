@@ -35,7 +35,11 @@ const workSans = Work_Sans({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={`${workSans.variable} ${notoSans.variable}`} data-theme="app" lang="en-US">
+    <html
+      className={`${workSans.variable} ${notoSans.variable}`}
+      data-base-theme="app"
+      lang="en-US"
+    >
       <body>
         <Header links={staticHeaderData} />
         {children}
