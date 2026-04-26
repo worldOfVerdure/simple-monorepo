@@ -1,5 +1,6 @@
 import type { FormValidationMessages } from '../../helpers/types';
 
+
 export type ContactFormMessages = {
 	validationMessages: FormValidationMessages;
 	submitLabel: string;
@@ -7,6 +8,7 @@ export type ContactFormMessages = {
 	pendingMessage: string;
 	successMessage: string;
 	errorMessage: string;
+	rateLimitMessage: string;
 };
 
 export const contactFormMessages: ContactFormMessages = {
@@ -34,5 +36,6 @@ export const contactFormMessages: ContactFormMessages = {
 	pendingSubmitLabel: 'Sending...',
 	pendingMessage: 'Submitting...',
 	successMessage: 'Message submitted.',
-	errorMessage: 'Something went wrong. Please try again.'
+	errorMessage: 'Something went wrong. Please try again.',
+	rateLimitMessage: 'Please wait 1 hour to send another message.'
 };

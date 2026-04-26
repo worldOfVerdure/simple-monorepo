@@ -33,5 +33,7 @@ export type {
   TextareaControlProps
 } from './form';
 
+export { RedAsterisk } from './form';
+
 export { ThemeProvider, ThemeContext, useTheme } from './theme';
 export type { ThemeContextValue } from './theme';

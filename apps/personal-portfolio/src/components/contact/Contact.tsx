@@ -28,6 +28,8 @@ export const Contact = () => {
       message: values.message.trim()
     };
 
+    // Capture the form reference synchronously to avoid React event pooling issues
+    const form = event.currentTarget;
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -37,13 +39,31 @@ export const Contact = () => {
         body: JSON.stringify(payload)
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error('Request failed');
+        if (response.status === 429) {
+          throw new Error('Please wait 1 hour to send another message.');
+        }
+        throw new Error(data?.error || 'Request failed');
       }
 
-      event.currentTarget.reset();
-    } catch {
-      throw new Error('Failed to send message.');
+      if (!data?.message) {
+        // Defensive: API should always return a message on success
+        throw new Error('No success message from server.');
+      }
+
+      if (form && typeof form.reset === 'function')
+        form.reset();
+
+    } catch (err) {
+      let message = 'Failed to send message.';
+      if (err instanceof Error) {
+        message = err.message;
+      } else if (typeof err === 'string') {
+        message = err;
+      }
+      throw new Error(message);
     }
   };
 

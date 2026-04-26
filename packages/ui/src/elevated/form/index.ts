@@ -29,3 +29,5 @@ export type {
   FormSlots,
   FormValidationMessages
 } from './helpers/types';
+
+export { RedAsterisk } from './helpers/red-asterisk';

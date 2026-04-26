@@ -9,7 +9,8 @@ import {
   FormLabel,
   FormLegend,
   FormMessage,
-  FormRoot
+  FormRoot,
+  RedAsterisk
 } from '../../elevated/form';
 //custom types
 import type {
@@ -26,6 +27,7 @@ import {
   type ComponentType,
   type ReactNode
 } from 'react';
+
 
 import { cn } from '../../lib/cn';
 
@@ -120,15 +122,19 @@ export const ContactFormShell = ({
     pendingSubmitLabel,
     pendingMessage,
     successMessage,
-    errorMessage
+    errorMessage,
+    rateLimitMessage
   } = messages;
 
   const [submitState, setSubmitState] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
 
+  // Track if the last error was a rate limit error
+  const [lastError, setLastError] = useState<string | null>(null);
+
   const submitMessageByState: Record<'pending' | 'success' | 'error', ReactNode> = {
     pending: pendingMessage,
     success: successMessage,
-    error: errorMessage
+    error: lastError === 'rate-limit' ? rateLimitMessage : errorMessage
   };
 
   const submitMessageClassName =
@@ -148,6 +154,7 @@ export const ContactFormShell = ({
     }
 
     setSubmitState('pending');
+    setLastError(null);
 
     const formData = new FormData(event.currentTarget);
     const values = buildValues(formData);
@@ -159,7 +166,13 @@ export const ContactFormShell = ({
         event
       });
       setSubmitState('success');
-    } catch {
+    } catch (err) {
+      // Detect rate limit error by message
+      if (err instanceof Error && err.message === 'Please wait 1 hour to send another message.') {
+        setLastError('rate-limit');
+      } else {
+        setLastError(null);
+      }
       setSubmitState('error');
     }
   };
@@ -178,7 +191,7 @@ export const ContactFormShell = ({
 
           <FormField name="name">
             <FormFieldHeader>
-              <FormLabel fieldName="name">Name *</FormLabel>
+              <FormLabel fieldName="name">Name <RedAsterisk /></FormLabel>
               <FormMessage fieldName="name" />
             </FormFieldHeader>
             <controls.TextControl name="name" required autoComplete="name" pattern={namePattern} />
@@ -186,7 +199,7 @@ export const ContactFormShell = ({
 
           <FormField name="email">
             <FormFieldHeader>
-              <FormLabel fieldName="email">Email *</FormLabel>
+              <FormLabel fieldName="email">Email <RedAsterisk /></FormLabel>
               <FormMessage fieldName="email" />
             </FormFieldHeader>
             <controls.EmailControl name="email" required autoComplete="email" />
@@ -194,7 +207,7 @@ export const ContactFormShell = ({
 
           <FormField name="message">
             <FormFieldHeader>
-              <FormLabel fieldName="message">Message *</FormLabel>
+              <FormLabel fieldName="message">Message <RedAsterisk /></FormLabel>
               <FormMessage fieldName="message" />
             </FormFieldHeader>
             <controls.TextareaControl name="message" required minLength={10} />
