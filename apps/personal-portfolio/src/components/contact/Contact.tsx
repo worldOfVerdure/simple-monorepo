@@ -11,7 +11,7 @@ import {
   invalidFocusValid
 } from '@simple-monorepo/ui';
 //styles
-import formStyles from './styles/contact-form.module.css';
+import { contactFormStyles } from '@simple-monorepo/ui';
 import styles from './styles/contact.module.css';
 
 export const Contact = () => {
@@ -59,23 +59,8 @@ export const Contact = () => {
       <h2 className="sectionH2">Contact Me</h2>
 
       <ContactFormShell
+        classes={contactFormStyles}
         controls={controls}
-        classes={{
-          form: formStyles.form,
-          fieldset: formStyles.fieldset,
-          field: formStyles.field,
-          fieldHeader: formStyles.fieldHeader,
-          label: formStyles.label,
-          control: formStyles.control,
-          textarea: formStyles.textarea,
-          message: formStyles.message,
-          actions: formStyles.actions,
-          submit: formStyles.submit,
-          submitMessage: formStyles.submitMessage,
-          submitMessageSuccess: formStyles.submitMessage,
-          submitMessageError: formStyles.submitMessage,
-          submitMessagePending: formStyles.submitMessage
-        }}
         legend="Contact Me"
         messages={contactFormMessages}
         onSubmit={handleSubmit}

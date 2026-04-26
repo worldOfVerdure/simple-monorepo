@@ -26,9 +26,9 @@ import {
   type ComponentType,
   type ReactNode
 } from 'react';
-//styles & helpers
+
 import { cn } from '../../lib/cn';
-import styles from './styles/contact-form-shell.module.css';
+
 
 const namePattern = "^[A-Za-z ,.'\\-]+$";
 
@@ -96,6 +96,24 @@ export const ContactFormShell = ({
   onSubmit,
   ...formRootProps
 }: ContactFormShellProps) => {
+    // Use only the classes prop for slot class names. No merging or defaults.
+    const shellClasses: ContactFormShellClasses = {
+      form: classes?.form,
+      fieldset: classes?.fieldset,
+      legend: classes?.legend,
+      field: classes?.field,
+      fieldHeader: classes?.fieldHeader,
+      label: classes?.label,
+      control: classes?.control,
+      textarea: classes?.textarea,
+      message: classes?.message,
+      actions: classes?.actions,
+      submit: classes?.submit,
+      submitMessage: classes?.submitMessage,
+      submitMessageSuccess: classes?.submitMessageSuccess,
+      submitMessageError: classes?.submitMessageError,
+      submitMessagePending: classes?.submitMessagePending,
+    };
   const {
     validationMessages,
     submitLabel,
@@ -115,10 +133,10 @@ export const ContactFormShell = ({
 
   const submitMessageClassName =
     submitState === 'pending'
-      ? cn(styles.submitMessagePending, classes?.submitMessagePending)
+      ? shellClasses.submitMessagePending
       : submitState === 'success'
-        ? cn(styles.submitMessageSuccess, classes?.submitMessageSuccess)
-        : cn(styles.submitMessageError, classes?.submitMessageError);
+        ? shellClasses.submitMessageSuccess
+        : shellClasses.submitMessageError;
 
   const handleSubmit = async (event: ContactFormSubmitEvent) => {
     event.preventDefault();
@@ -150,7 +168,7 @@ export const ContactFormShell = ({
     <>
       <FormRoot
         {...formRootProps}
-        classes={classes}
+        classes={shellClasses}
         onSubmit={handleSubmit}
         rulebook={rulebook}
         validationMessages={validationMessages}
@@ -184,15 +202,15 @@ export const ContactFormShell = ({
         </Fieldset>
 
         <FormActions>
-          <Button className={classes?.submit} size="md" type="submit">
+          <Button className={shellClasses.submit} size="md" type="submit">
             {submitState === 'pending' ? pendingSubmitLabel : submitLabel}
           </Button>
         </FormActions>
         {submitState !== 'idle' ? (
-        <p className={cn(styles.submitMessage, submitMessageClassName, classes?.submitMessage)}>
-          {submitMessageByState[submitState]}
-        </p>
-      ) : null}
+          <p className={shellClasses.submitMessage + ' ' + submitMessageClassName}>
+            {submitMessageByState[submitState]}
+          </p>
+        ) : null}
       </FormRoot>
     </>
   );
