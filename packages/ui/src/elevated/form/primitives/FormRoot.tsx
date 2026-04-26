@@ -23,53 +23,13 @@ export function FormRoot({
   children,
   ...props
 }: FormRootProps) {
-  const [focusedField, setFocusedField] = useState<string | null>(null);
-  const [touchedFields, setTouchedFields] = useState<FormTouchedFields>({});
-  const [errors, setErrors] = useState<FormErrors>({});
-  const formId = useId().replace(/:/g, '');
-  const stateValue: FormStateContextValue = {
-    formId,
-    focusedField,
-    touchedFields,
-    errors,
-    validationMessages,
-    rulebook,
-    setFocusedField,
-    setTouchedWrapper: (fieldName, touched) => {
-      setTouchedFields((previous) => {
-        if (previous[fieldName] === touched) {
-          return previous;
-        }
-
-        return {
-          ...previous,
-          [fieldName]: touched
-        };
-      });
-    },
-    setErrorWrapper: (fieldName, message) => {
-      setErrors((previous) => {
-        if (previous[fieldName] === message) {
-          return previous;
-        }
-
-        return {
-          ...previous,
-          [fieldName]: message
-        };
-      });
-    }
-  };
-
   const themeValue: FormThemeContextValue = { classes };
 
   return (
     <FormThemeContext value={themeValue}>
-      <FormStateContext value={stateValue}>
-        <Form.Root className={cn(classes?.form, className)} style={{ ...tokens, ...style }} {...props}>
-          {children}
-        </Form.Root>
-      </FormStateContext>
+      <Form.Root className={cn(classes?.form, className)} style={{ ...tokens, ...style }} {...props}>
+        {children}
+      </Form.Root>
     </FormThemeContext>
   );
 }

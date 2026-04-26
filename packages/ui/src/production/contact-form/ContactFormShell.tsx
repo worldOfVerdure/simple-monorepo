@@ -24,13 +24,11 @@ import type {
 //react hooks & types
 import {
   useState,
+  useId,
   type ComponentType,
   type ReactNode
 } from 'react';
-
-
-import { cn } from '../../lib/cn';
-
+import { FormStateContext } from '../../elevated/form/context/formContext';
 
 const namePattern = "^[A-Za-z ,.'\\-]+$";
 
@@ -88,36 +86,78 @@ const buildValues = (formData: FormData): ContactFormValues => {
   };
 };
 
-export const ContactFormShell = ({
-  controls,
-  classes,
-  messages,
-  rulebook,
-  showLegend = true,
-  legend = 'Message Me',
-  onSubmit,
-  ...formRootProps
-}: ContactFormShellProps) => {
-    // Use only the classes prop for slot class names. No merging or defaults.
-    const shellClasses: ContactFormShellClasses = {
-      form: classes?.form,
-      fieldset: classes?.fieldset,
-      legend: classes?.legend,
-      field: classes?.field,
-      fieldHeader: classes?.fieldHeader,
-      label: classes?.label,
-      control: classes?.control,
-      textarea: classes?.textarea,
-      message: classes?.message,
-      actions: classes?.actions,
-      submit: classes?.submit,
-      submitMessage: classes?.submitMessage,
-      submitMessageSuccess: classes?.submitMessageSuccess,
-      submitMessageError: classes?.submitMessageError,
-      submitMessagePending: classes?.submitMessagePending,
-    };
+  export const ContactFormShell = ({
+    controls,
+    classes,
+    messages,
+    rulebook,
+    showLegend = true,
+    legend = 'Message Me',
+    onSubmit,
+    ...formRootProps
+  }: ContactFormShellProps) => {
+  // Form state (moved up from FormRoot)
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [touchedFields, setTouchedFields] = useState<Record<string, boolean>>({});
+  const [errors, setErrors] = useState<Record<string, string | null>>({});
+  const formId = useId().replace(/:/g, '');
+
+  // Submit state
+  const [submitState, setSubmitState] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
+  const [lastError, setLastError] = useState<string | null>(null);
+
+  // Context value
+  const stateValue = {
+    formId,
+    focusedField,
+    touchedFields,
+    errors,
+    validationMessages: messages.validationMessages,
+    rulebook,
+    setFocusedField,
+    setTouchedWrapper: (fieldName: string, touched: boolean) => {
+      setTouchedFields((previous) => {
+        if (previous[fieldName] === touched) {
+          return previous;
+        }
+        return {
+          ...previous,
+          [fieldName]: touched
+        };
+      });
+    },
+    setErrorWrapper: (fieldName: string, message: string | null) => {
+      setErrors((previous) => {
+        if (previous[fieldName] === message) {
+          return previous;
+        }
+        return {
+          ...previous,
+          [fieldName]: message
+        };
+      });
+    }
+  };
+
+  // Slot classes
+  const shellClasses: ContactFormShellClasses = {
+    form: classes?.form,
+    fieldset: classes?.fieldset,
+    legend: classes?.legend,
+    field: classes?.field,
+    fieldHeader: classes?.fieldHeader,
+    label: classes?.label,
+    control: classes?.control,
+    textarea: classes?.textarea,
+    message: classes?.message,
+    actions: classes?.actions,
+    submit: classes?.submit,
+    submitMessage: classes?.submitMessage,
+    submitMessageSuccess: classes?.submitMessageSuccess,
+    submitMessageError: classes?.submitMessageError,
+    submitMessagePending: classes?.submitMessagePending,
+  };
   const {
-    validationMessages,
     submitLabel,
     pendingSubmitLabel,
     pendingMessage,
@@ -125,11 +165,6 @@ export const ContactFormShell = ({
     errorMessage,
     rateLimitMessage
   } = messages;
-
-  const [submitState, setSubmitState] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
-
-  // Track if the last error was a rate limit error
-  const [lastError, setLastError] = useState<string | null>(null);
 
   const submitMessageByState: Record<'pending' | 'success' | 'error', ReactNode> = {
     pending: pendingMessage,
@@ -166,6 +201,10 @@ export const ContactFormShell = ({
         event
       });
       setSubmitState('success');
+      // Reset touched state for all fields after successful submit
+      stateValue.setTouchedWrapper('name', false);
+      stateValue.setTouchedWrapper('email', false);
+      stateValue.setTouchedWrapper('message', false);
     } catch (err) {
       // Detect rate limit error by message
       if (err instanceof Error && err.message === 'Please wait 1 hour to send another message.') {
@@ -178,13 +217,13 @@ export const ContactFormShell = ({
   };
 
   return (
-    <>
+    <FormStateContext.Provider value={stateValue}>
       <FormRoot
         {...formRootProps}
         classes={shellClasses}
         onSubmit={handleSubmit}
         rulebook={rulebook}
-        validationMessages={validationMessages}
+        validationMessages={messages.validationMessages}
       >
         <Fieldset>
           {showLegend ? <FormLegend>{legend}</FormLegend> : null}
@@ -225,6 +264,6 @@ export const ContactFormShell = ({
           </p>
         ) : null}
       </FormRoot>
-    </>
+    </FormStateContext.Provider>
   );
 };
