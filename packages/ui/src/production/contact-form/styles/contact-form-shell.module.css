@@ -154,9 +154,9 @@
 
 .submitMessage {
   display: inline;
-  font-size: var(--text-caption);
+  font-size: var(--text-body);
   font-weight: 400;
-  margin: 0;
+  margin: 2rem 0 0 0;
   text-align: right;
   width: 100%;
 }
