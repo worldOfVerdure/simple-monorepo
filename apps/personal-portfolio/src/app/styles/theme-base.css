@@ -1,5 +1,6 @@
 [data-base-theme="app"] {
   /* Text */
+  --color-text-secondary: #f7f8fa;
   --color-text-muted: #475569;
 
   /* Borders */

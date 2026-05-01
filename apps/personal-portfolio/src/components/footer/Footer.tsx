@@ -6,6 +6,7 @@ import linkedinIcon from '@/assets/footer/linkedin-dark.svg';
 import mushroomAntler from '@/assets/footer/mushroom-antler.svg';
 //styles
 import styles from "./styles/footer.module.css";
+import { underlineStyles } from '@simple-monorepo/ui';
 
 export const Footer = () => {
   return (
@@ -62,8 +63,8 @@ export const Footer = () => {
           </Stack>
           </nav>
           <Link
-            classes={{label: styles.linkText}}
-            className={`${styles.linkText} ${styles.sourceCode}`}
+            classes={{ label: `${styles.linkText} ${underlineStyles.label}` }}
+            className={`${styles.linkText} ${styles.sourceCode} ${underlineStyles.text}`}
             href="https://github.com/worldOfVerdure/simple-monorepo/tree/main/apps/personal-portfolio"
             variant="text"
           >
@@ -75,8 +76,8 @@ export const Footer = () => {
           <h2 className={styles.footerH2}>Privacy</h2>
           <nav className={styles.footerLinks}>
             <Link
-              classes={{label: styles.linkText}}
-              className={styles.linkText}
+              classes={{ label: `${styles.linkText} ${underlineStyles.label}` }}
+              className={`${styles.linkText} ${styles.sourceCode} ${underlineStyles.text}`}
               href="/privacy"
               variant="text"
             >

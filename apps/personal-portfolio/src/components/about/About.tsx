@@ -152,7 +152,7 @@ export const About = () => {
                   prefetch={false}
                   size="sm"
                   type="application/pdf"
-                  variant="buttonSecondary"
+                  variant="secondary"
                 >
                   Download Resume
                 </Link>

@@ -31,7 +31,7 @@ export const Hero = () => {
           className={styles.heroLink}
           href="#projects"
           size="lg"
-          variant="buttonGhost"
+          variant="ghost"
         >
           View My Work
           <ChevronDownIcon height={20} width={20} />

@@ -57,6 +57,7 @@ export type ContactFormSubmitHandler = (args: {
 
 export type ContactFormShellClasses = FormSlots & {
   submit?: string;
+  submitLabel?: string;
   submitMessage?: string;
   submitMessageSuccess?: string;
   submitMessageError?: string;
@@ -152,11 +153,13 @@ const buildValues = (formData: FormData): ContactFormValues => {
     message: classes?.message,
     actions: classes?.actions,
     submit: classes?.submit,
+    submitLabel: classes?.submitLabel,
     submitMessage: classes?.submitMessage,
     submitMessageSuccess: classes?.submitMessageSuccess,
     submitMessageError: classes?.submitMessageError,
     submitMessagePending: classes?.submitMessagePending,
   };
+  
   const {
     submitLabel,
     pendingSubmitLabel,
@@ -254,7 +257,13 @@ const buildValues = (formData: FormData): ContactFormValues => {
         </Fieldset>
 
         <FormActions>
-          <Button className={shellClasses.submit} size="md" type="submit" variant="ghost" >
+          <Button
+            classes={{ label: shellClasses.submitLabel }}
+            className={shellClasses.submit}
+            data-theme="dark"
+            type="submit"
+            variant="none"
+          >
             {submitState === 'pending' ? pendingSubmitLabel : submitLabel}
           </Button>
         </FormActions>

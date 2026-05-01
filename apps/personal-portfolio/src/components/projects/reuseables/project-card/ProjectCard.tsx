@@ -48,6 +48,7 @@ export const ProjectCard = ({
             <Stack direction="row" gap="var(--space-5)" >
               <Link
                 data-theme="dark"
+                classes={{ label: styles.projectLinkLiveLabelBtn }}
                 className={`${styles.projectLinkLiveBtn} ${styles.projectLinkBtns}`}
                 href={liveProject}
                 size="lg"
@@ -82,10 +83,12 @@ export const ProjectCard = ({
           </Link>
           <Stack direction="row" gap="var(--space-5)" >
             <Link
-              className={`${styles.projectLinkLiveBtn} ${styles.projectLinkBtns}`}
-              href={liveProject}
-              size="lg"
-              variant="ghost"
+              data-theme="dark"
+                classes={{ label: styles.projectLinkLiveLabelBtn }}
+                className={`${styles.projectLinkLiveBtn} ${styles.projectLinkBtns}`}
+                href={liveProject}
+                size="lg"
+                variant="primary"
             >
               Live Project
             </Link>

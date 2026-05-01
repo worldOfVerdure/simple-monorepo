@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 //styles
 import styles from './styles/header.module.css';
+import { underlineStyles } from '@simple-monorepo/ui';
 
 
 type HeaderLink = {
@@ -112,7 +113,8 @@ export const Header = ({links}: HeaderProps) => {
             <li key={linkText}>
               <Link
                 aria-current={isActiveLink(linkHref) ? 'location' : undefined}
-                className={styles.links}
+                classes={{ label: underlineStyles.label }}
+                className={`${styles.links} ${underlineStyles.text}`}
                 href={linkHref}
               >
                 {linkText}
