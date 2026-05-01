@@ -10,8 +10,8 @@ import styles from "./styles/footer.module.css";
 export const Footer = () => {
   return (
     <footer className={styles.footerContainer} data-theme="dark" >
-      <Stack className={styles.missionPrivacyStack} gap="none" > {/* Footer mission & privacy */}
-        <Stack align="flex-start" gap="var(--space-2)" > {/* Footer mission */}
+      <Stack className={styles.missionPrivacyStack} > {/* Footer mission & privacy */}
+        <Stack align="flex-start" gap="var(--space-3)" > {/* Footer mission */}
           <h2 className={styles.footerH2} >Web Developer</h2>
           <Stack className={styles.author} direction="row" >
             <img
@@ -24,7 +24,7 @@ export const Footer = () => {
             />
             <h3 className={styles.footerAuthorName} >Andrew Chupka</h3>
           </Stack>
-          <em><p className={styles.footerMission} >Every website, engineered to be efficient and accessible.</p></em>
+          {/* <em><p className={styles.footerMission} >Every website, engineered to be efficient and accessible.</p></em> */}
           <nav className={styles.footerLinks}>
             <Stack as="ul" direction="row" gap="var(--space-4)" >
             <li>

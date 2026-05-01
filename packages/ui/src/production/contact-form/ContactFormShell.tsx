@@ -254,7 +254,7 @@ const buildValues = (formData: FormData): ContactFormValues => {
         </Fieldset>
 
         <FormActions>
-          <Button className={shellClasses.submit} size="md" type="submit">
+          <Button className={shellClasses.submit} size="md" type="submit" variant="ghost" >
             {submitState === 'pending' ? pendingSubmitLabel : submitLabel}
           </Button>
         </FormActions>

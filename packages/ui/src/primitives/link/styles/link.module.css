@@ -88,7 +88,7 @@
   --link-font-size: var(--text-body);
 }
 
-.buttonPrimary {
+.primary {
   --link-bg: var(--color-primary);
   --link-color: var(--color-primary-contrast);
   --link-border: transparent;
@@ -96,7 +96,7 @@
   --link-hover-decoration: none;
 }
 
-.buttonSecondary {
+.secondary {
   --link-bg: var(--color-surface);
   --link-color: var(--color-text);
   --link-border: var(--color-border);
@@ -104,27 +104,12 @@
   --link-hover-decoration: none;
 }
 
-.buttonGhost {
+.ghost {
   --link-bg: transparent;
   --link-color: var(--color-text);
   --link-border: var(--color-border);
   --link-decoration: none;
   --link-hover-decoration: none;
-}
-
-.buttonPrimary:hover,
-.buttonSecondary:hover,
-.buttonGhost:hover {
-  transform: translateY(-2px);
-}
-
-.label {
-  display: inline-block;
-}
-
-.buttonSecondary:hover,
-.buttonGhost:hover {
-  transform: translateY(-2px);
 }
 
 .label {

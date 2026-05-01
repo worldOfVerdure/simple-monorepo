@@ -51,7 +51,7 @@ export const ProjectCard = ({
                 className={`${styles.projectLinkLiveBtn} ${styles.projectLinkBtns}`}
                 href={liveProject}
                 size="lg"
-                variant="buttonPrimary"
+                variant="primary"
               >
                 Live Project
               </Link>
@@ -59,7 +59,7 @@ export const ProjectCard = ({
                 className={`${styles.projectLinkGithubBtn} ${styles.projectLinkBtns}`}
                 href={github}
                 size="lg"
-                variant="buttonSecondary"
+                variant="secondary"
               >
                 GitHub
               </Link>
@@ -85,7 +85,7 @@ export const ProjectCard = ({
               className={`${styles.projectLinkLiveBtn} ${styles.projectLinkBtns}`}
               href={liveProject}
               size="lg"
-              variant="buttonPrimary"
+              variant="ghost"
             >
               Live Project
             </Link>
@@ -93,7 +93,7 @@ export const ProjectCard = ({
               className={`${styles.projectLinkGithubBtn} ${styles.projectLinkBtns}`}
               href={github}
               size="lg"
-              variant="buttonSecondary"
+              variant="secondary"
             >
               GitHub
             </Link>
