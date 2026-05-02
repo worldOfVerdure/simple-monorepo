@@ -26,11 +26,12 @@ Welcome to the **simple-monorepo**! This repository is a modern, full-stack mono
 ## 🚀 What This Monorepo Offers
 
 - **Multiple Next.js Apps:**
-  - `personal-portfolio`: A real-world portfolio site, using the shared UI library and design system.
-  - `simple-demo`: A playground for testing and demoing UI components in isolation.
+  - `personal-portfolio`: Author's portfolio site, using the shared UI library and design system.
+  - `simple-demo`: A playground for demoing and ensure the new project displays the demo page.
 
 - **Reusable UI Library:**
-  - `packages/ui`: A production-grade React component library, including forms, buttons, layout primitives, and more. Built for composability and accessibility.
+  - `packages/ui`: A React component library, including forms, buttons, layout primitives, and more.
+  Built for composability and accessibility.
 
 - **Design System:**
   - `packages/design-system`: Centralized design tokens (colors, spacing, typography), CSS utilities, and base styles for consistent theming across all apps.
@@ -48,12 +49,12 @@ Welcome to the **simple-monorepo**! This repository is a modern, full-stack mono
 ## 🧭 How to Navigate
 
 - **Apps:**
-  - Go to `apps/personal-portfolio` to see a real-world Next.js app using the shared UI library.
+  - Go to `apps/personal-portfolio` to see a Next.js app using the shared UI library.
   - Go to `apps/simple-demo` for a minimal Next.js app to test and demo components.
 
 - **UI Library:**
   - Explore `packages/ui/src/` for all reusable React components.
-  - Components are organized by domain (e.g., `contact-form`, `primitives`, `elevated`).
+  - Components are organized by domain (e.g., `production`, `primitives`, `elevated`).
   - Each component is fully typed and designed for easy integration.
 
 - **Design System:**
