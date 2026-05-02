@@ -2,7 +2,7 @@
 
 Demo Next.js app inside the simple-monorepo workspace.
 
-Live site: https://simple-template-gamma.vercel.app/
+Live site: https://simple-monorepo-gamma.vercel.app/
 
 ## What This App Is
 
