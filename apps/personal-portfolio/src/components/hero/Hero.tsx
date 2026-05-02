@@ -4,7 +4,7 @@ import { Link, Stack } from '@simple-monorepo/ui';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 //styles
 import styles from './styles/hero.module.css';
-
+//test comment
 export const Hero = () => {
   return (
     <section className={`${styles.heroContainer} full-width`} data-theme="dark" id="home">
