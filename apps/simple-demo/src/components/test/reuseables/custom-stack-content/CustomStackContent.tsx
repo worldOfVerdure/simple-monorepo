@@ -1,4 +1,6 @@
+//components
 import { Stack } from '@simple-monorepo/ui';
+//styles
 import styles from './styles/custom-stack-content.module.css';
 
 export const CustomStackContent = ({children}: {children: React.ReactNode}) => {
