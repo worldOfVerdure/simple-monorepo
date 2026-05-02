@@ -4,6 +4,7 @@ import { Link } from '@simple-monorepo/ui';
 import { SectionHeading } from '../reuseables/section-heading';
 //styles
 import styles from './styles/custom-links.module.css';
+import { raiseStyles } from '@simple-monorepo/ui';
 import { underlineStyles } from '@simple-monorepo/ui';
 
 export const CustomLinks = () => {
@@ -12,7 +13,7 @@ export const CustomLinks = () => {
       <SectionHeading>Links</SectionHeading>
       <CustomStackContent >
         <Link
-          className={styles.actionsContent}
+          className={`${styles.actionsContent} ${raiseStyles.raiseOnHover}`}
           href="https://nextjs.org/docs"
           rel="noopener noreferrer"
           size="sm"
@@ -22,7 +23,7 @@ export const CustomLinks = () => {
           Next.js
         </Link>
         <Link
-          className={styles.actionsContent}
+          className={`${styles.actionsContent} ${raiseStyles.raiseOnHover}`}
           href="https://react.dev"
           target="_blank"
           rel="noopener noreferrer"
@@ -32,7 +33,7 @@ export const CustomLinks = () => {
           React
         </Link>
         <Link
-          className={styles.actionsContent}
+          className={`${styles.actionsContent} ${raiseStyles.raiseOnHover}`}
           href="https://www.typescriptlang.org/docs/"
           rel="noopener noreferrer"
           size="sm"
@@ -43,7 +44,7 @@ export const CustomLinks = () => {
           TypeScript
         </Link>
         <Link
-          className={`${styles.actionsContent} ${styles.customLink}`}
+          className={`${styles.actionsContent} ${styles.customLink} ${raiseStyles.raiseOnHover}`}
           href="https://www.radix-ui.com/docs/primitives/overview/introduction"
           rel="noopener noreferrer"
           size="lg"

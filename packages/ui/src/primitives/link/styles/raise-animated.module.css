@@ -1,0 +1,7 @@
+.raiseOnHover {
+  transition: transform 120ms ease;
+}
+
+.raiseOnHover:hover:not(:disabled) {
+  transform: translateY(-2px);
+}

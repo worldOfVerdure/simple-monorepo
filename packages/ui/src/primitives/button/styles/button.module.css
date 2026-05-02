@@ -6,30 +6,27 @@
   --btn-px: var(--space-4);
   --btn-py: var(--space-2);
 
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  border-radius: var(--btn-radius);
-  border: 2px solid var(--btn-border);
+  display: inline-flex;
   background: var(--btn-bg);
+  border: 2px solid var(--btn-border);
+  border-radius: var(--btn-radius);
   color: var(--btn-color);
-  padding: var(--btn-py) var(--btn-px);
-  font-weight: 600;
-  font-size: var(--text-caption);
-  line-height: 1;
   cursor: pointer;
-  transition: transform 120ms ease, opacity 120ms ease;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  gap: var(--space-2);
+  justify-content: center;
+  line-height: 1;
+  padding: var(--btn-py) var(--btn-px);
+  transition: opacity 120ms ease;
 }
 
 .button:disabled {
-  opacity: 0.55;
   cursor: not-allowed;
+  opacity: 0.55;
 }
 
-.button:hover:not(:disabled) {
-  transform: translateY(-2px);
-}
 /* Sizes */
 .sm {
   --btn-px: var(--space-3);
@@ -48,20 +45,20 @@
 /* Variants */
 .primary {
   --btn-bg: var(--color-primary);
-  --btn-color: var(--color-primary-contrast);
   --btn-border: transparent;
+  --btn-color: var(--color-primary-contrast);
 }
 
 .secondary {
   --btn-bg: var(--color-surface);
-  --btn-color: var(--color-text);
   --btn-border: var(--color-border);
+  --btn-color: var(--color-text);
 }
 
 .ghost {
   --btn-bg: transparent;
-  --btn-color: var(--color-text);
   --btn-border: var(--color-border);
+  --btn-color: var(--color-text);
 }
 
 .label {
