@@ -5,12 +5,12 @@
 
 .missionPrivacyStack {
   align-items: flex-start;
-  gap: var(--space-6);
+  gap: clamp(10rem, 8rem + 4vw, 25rem);
   width: fit-content;
 }
 
 .author,
-.footerMission,
+/* .footerMission, */
 .footerLinks,
 .footerDisclaimer,
 .sourceCode {
@@ -18,7 +18,7 @@
 }
 
 .footerH2,
-.footerMission,
+/* .footerMission, */
 .footerDisclaimer,
 .linkText {
   color: var(--color-text);
@@ -48,9 +48,9 @@
   text-align: left;
 }
 
-.footerMission {
+/* .footerMission {
   font-size: var(--text-caption);
-}
+} */
 
 .footerLogoLinks {
   display: inline-flex;
@@ -69,15 +69,8 @@
   width: fit-content;
 }
 
-@media (--bp-up-xs) {
-  .footerMission {
-    width: 60%;
-  }
-}
-
 @media (--bp-up-sm) {
   .missionPrivacyStack {
     flex-direction: row;
-    gap: 0rem;
   }
 }

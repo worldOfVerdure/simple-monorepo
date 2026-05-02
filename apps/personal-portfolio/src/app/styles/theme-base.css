@@ -1,5 +1,6 @@
 [data-base-theme="app"] {
   /* Text */
+  --color-text-secondary: #f7f8fa;
   --color-text-muted: #475569;
 
   /* Borders */
@@ -7,7 +8,7 @@
 
   /* Brand */
   --color-primary: #090979;
-  --color-primary-contrast: #f30b0b;
+  --color-primary-contrast: #f52f2f;
 
   /* Feedback */
   --color-success: #044d14;

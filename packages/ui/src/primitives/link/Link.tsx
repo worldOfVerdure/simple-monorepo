@@ -3,7 +3,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import { cn } from '../../lib/cn';
 import styles from './styles/link.module.css';
 
-type LinkVariant = 'text' | 'buttonPrimary' | 'buttonSecondary' | 'buttonGhost';
+type LinkVariant = 'text' | 'primary' | 'secondary' | 'ghost'| 'none';
 type LinkSize = 'none' | 'sm' | 'md' | 'lg' | 'compact-lg';
 
 type LinkSlots = {
@@ -64,9 +64,12 @@ export function Link({
     );
   }
 
+  // If variant is 'none', do not apply any variant class
+  const variantClass = variant === 'none' ? undefined : styles[variant];
+
   return (
     <NextLink
-      className={cn(styles.link, sizeClass, styles[variant], classes?.root, className)}
+      className={cn(styles.link, sizeClass, variantClass, classes?.root, className)}
       style={mergedStyle}
       {...rest}
     >

@@ -6,8 +6,7 @@
   --link-px: 0;
   --link-py: 0;
   --link-font-size: var(--text-caption);
-  --link-decoration: underline;
-  --link-hover-decoration: underline;
+  --link-decoration: none;
 
   display: inline-flex;
   align-items: center;
@@ -25,45 +24,7 @@
   transition: transform 120ms ease, opacity 120ms ease;
 }
 
-.link:hover {
-  text-decoration: var(--link-hover-decoration);
-}
-
-.text {
-  --link-bg: transparent;
-  --link-color: var(--color-text);
-  --link-border: transparent;
-  --link-radius: 0;
-  --link-px: 0;
-  --link-py: 0;
-  --link-decoration: none;
-  --link-hover-decoration: none;
-}
-
-.text .label {
-  position: relative;
-  padding-bottom: 2px;
-}
-
-.text .label::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 360ms ease;
-}
-
-.text:hover .label::after,
-.text:focus-visible .label::after,
-.text[aria-current='location'] .label::after {
-  transform: scaleX(1);
-}
-
+/* sizes */
 .sm {
   --link-px: var(--space-2);
   --link-py: var(--space-2);
@@ -87,44 +48,37 @@
   --link-py: var(--space-2);
   --link-font-size: var(--text-body);
 }
+/* variants */
+.text {
+  --link-bg: transparent;
+  --link-color: var(--color-text);
+  --link-border: transparent;
+  --link-radius: 0;
+  --link-px: 0;
+  --link-py: 0;
+}
 
-.buttonPrimary {
+.text .label {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.primary {
   --link-bg: var(--color-primary);
   --link-color: var(--color-primary-contrast);
   --link-border: transparent;
-  --link-decoration: none;
-  --link-hover-decoration: none;
 }
 
-.buttonSecondary {
+.secondary {
   --link-bg: var(--color-surface);
   --link-color: var(--color-text);
   --link-border: var(--color-border);
-  --link-decoration: none;
-  --link-hover-decoration: none;
 }
 
-.buttonGhost {
+.ghost {
   --link-bg: transparent;
   --link-color: var(--color-text);
   --link-border: var(--color-border);
-  --link-decoration: none;
-  --link-hover-decoration: none;
-}
-
-.buttonPrimary:hover,
-.buttonSecondary:hover,
-.buttonGhost:hover {
-  transform: translateY(-2px);
-}
-
-.label {
-  display: inline-block;
-}
-
-.buttonSecondary:hover,
-.buttonGhost:hover {
-  transform: translateY(-2px);
 }
 
 .label {

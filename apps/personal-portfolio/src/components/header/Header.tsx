@@ -1,12 +1,13 @@
 'use client';
 
 //components
-import { Link,  Stack } from '@simple-monorepo/ui';
+import { Link, Stack } from '@simple-monorepo/ui';
 //hooks
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 //styles
 import styles from './styles/header.module.css';
+import { underlineStyles } from '@simple-monorepo/ui';
 
 
 type HeaderLink = {
@@ -40,7 +41,7 @@ export const Header = ({links}: HeaderProps) => {
       return;
 
     const resolveNavState = () => {
-      /* scrollY returns pixels we scroll from viewport top and .bottom returns the bottom position
+      /* scrollY returns pixels we scroll from viewport top-origin and .bottom returns the bottom position
        returns the number of pixels from the top of relative to the viewport. Given the fixed nature
        of Header, header.getBoundingClientRect().bottom equates to the Header's height. So by adding
        how much we scroll to the height, we are effectively calculating the threshold for sentinel's
@@ -112,7 +113,8 @@ export const Header = ({links}: HeaderProps) => {
             <li key={linkText}>
               <Link
                 aria-current={isActiveLink(linkHref) ? 'location' : undefined}
-                className={styles.links}
+                classes={{ label: underlineStyles.label }}
+                className={`${styles.links} ${underlineStyles.text}`}
                 href={linkHref}
               >
                 {linkText}

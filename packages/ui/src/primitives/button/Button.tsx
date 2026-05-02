@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, CSSProperties } from 'react';
 import { cn } from '../../lib/cn';
 import styles from './styles/button.module.css';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'none';
 type ButtonSize = 'none' | 'sm' | 'md' | 'lg';
 
 type ButtonSlots = {
@@ -58,9 +58,12 @@ export function Button({
     );
   }
 
+  // If variant is 'none', do not apply any variant class
+  const variantClass = variant === 'none' ? undefined : styles[variant];
+
   return (
     <button
-      className={cn(styles.button, styles[variant], sizeClass, classes?.root, className)}
+      className={cn(styles.button, variantClass, sizeClass, classes?.root, className)}
       style={mergedStyle}
       {...rest}
     >
